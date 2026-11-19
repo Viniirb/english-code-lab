@@ -1,0 +1,48 @@
+{
+  "S1": [
+    "login",
+    "button"
+  ],
+  "S2": [
+    "crash",
+    "empty",
+    "name"
+  ],
+  "S3": [
+    "readme",
+    "install"
+  ],
+  "S4": [
+    "unused",
+    "oldhelper",
+    "function",
+    "helper"
+  ],
+  "S5": [
+    "rename",
+    "totalprice",
+    "variable"
+  ],
+  "S6": [
+    "test",
+    "discount"
+  ],
+  "S7": [
+    "timeout",
+    "10"
+  ],
+  "S8": [
+    "axios",
+    "1.7",
+    "upgrade",
+    "library"
+  ],
+  "S9": [
+    "typo",
+    "error"
+  ],
+  "S10": [
+    "cache",
+    "search"
+  ]
+}

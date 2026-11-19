@@ -1,0 +1,15 @@
+00|setup|Setup e método|A2
+01|vocabulario|Vocabulário de desenvolvedor|A2
+02|mensagens-de-erro|Lendo mensagens de erro|A2
+03|lendo-documentacao|Lendo documentação|A2
+04|commits|Mensagens de commit|A2
+05|codigo-em-ingles|Nomes e comentários em inglês (código)|A2
+06|bug-reports|Relatórios de bug|A2
+07|pull-requests|Descrições de pull request|B1
+08|code-review|Code review (leitura e escrita)|B1
+09|explicando-codigo|Explicando código|B1
+10|phrasal-verbs|Phrasal verbs de tecnologia|B1
+11|updates-assincronos|Updates assíncronos (stand-up escrito)|B1
+12|artigo-tecnico|Artigo técnico curto|B1
+13|entrevista|Entrevista: respostas STAR|B1
+14|capstone|Capstone: contribuição real + 14 dias seguidos|B1+

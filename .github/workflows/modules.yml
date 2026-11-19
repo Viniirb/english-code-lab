@@ -1,0 +1,96 @@
+name: Validate module
+
+# PR de uma branch `modulo/NN-nome`: valida o módulo NN (o mesmo script que você roda local).
+# Push na branch `reference`: valida TODOS os módulos (garante que gabaritos e validadores batem).
+# Manual (Actions > Run workflow): boletim de todos os módulos na branch escolhida.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [reference]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: modules-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  selftest:
+    name: Self-test of the validators
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest tests -q
+
+  integrity:
+    name: Integrity
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Only work/, journal/ and srs/ may change
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          changed=$(git diff --name-status --diff-filter=MDR "$BASE_SHA" "$HEAD_SHA" \
+            | awk '{print $NF}' | grep -vE '^(work|journal|srs)/' || true)
+          if [ -n "$changed" ]; then
+            echo "::error::These files cannot be modified or deleted in a module PR:"
+            echo "$changed"
+            exit 1
+          fi
+          echo "Only your own files changed."
+
+  detect:
+    name: Detect modules
+    runs-on: ubuntu-latest
+    outputs:
+      modules: ${{ steps.pick.outputs.modules }}
+    steps:
+      - id: pick
+        env:
+          EVENT: ${{ github.event_name }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          all='["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14"]'
+          if [ "$EVENT" = "pull_request" ]; then
+            if [[ "$HEAD_REF" =~ ^modulo/([0-9]{2})- ]]; then
+              echo "modules=[\"${BASH_REMATCH[1]}\"]" >> "$GITHUB_OUTPUT"
+            else
+              echo "::notice::Branch '$HEAD_REF' does not match modulo/NN-name; nothing to validate."
+              echo "modules=[]" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "modules=$all" >> "$GITHUB_OUTPUT"
+          fi
+
+  validate:
+    name: Validate module ${{ matrix.module }}
+    needs: detect
+    if: needs.detect.outputs.modules != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ${{ fromJSON(needs.detect.outputs.modules) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Validate
+        run: python scripts/validate_module.py "${{ matrix.module }}"

@@ -1,0 +1,44 @@
+# Target words
+
+Pick at least 25 of these words.
+
+- **variable**: a name that holds a value
+- **function**: a block of code that does one job
+- **loop**: code that repeats many times
+- **array**: a list of values in order
+- **string**: text inside quotes
+- **number**: a value like 1 or 3.5
+- **boolean**: a value that is true or false
+- **object**: a group of named values
+- **class**: a plan to create objects
+- **method**: a function inside a class
+- **parameter**: a name for an input of a function
+- **argument**: the real value you give to a function
+- **return**: send a value back from a function
+- **condition**: a test that is true or false
+- **error**: a problem that stops the program
+- **bug**: a mistake in the code
+- **fix**: change the code to solve a problem
+- **test**: code that checks other code
+- **build**: turn source code into a program
+- **deploy**: put the program on a server for users
+- **commit**: a saved change in git
+- **branch**: a separate line of work in git
+- **merge**: join two branches together
+- **review**: read someone else's code and give feedback
+- **request**: a message that asks a server for data
+- **response**: the answer a server sends back
+- **server**: a computer that gives data to other computers
+- **client**: the program that asks the server for data
+- **database**: a place where an app keeps its data
+- **file**: a named piece of data on a disk
+- **folder**: a place that holds files
+- **library**: code from other people that you can use
+- **package**: a library you install
+- **version**: a number that shows a stage of the software
+- **feature**: a new thing the software can do
+- **release**: a version you give to users
+- **issue**: a task or a problem in the tracker
+- **comment**: a note in the code for people
+- **value**: the data inside a variable
+- **name**: the word that identifies something

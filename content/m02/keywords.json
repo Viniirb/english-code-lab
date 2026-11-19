@@ -1,0 +1,65 @@
+{
+  "E1": [
+    "undefined",
+    "property",
+    "properties",
+    "missing",
+    "empty",
+    "does not exist"
+  ],
+  "E2": [
+    "symbol",
+    "bracket",
+    "brace",
+    "syntax",
+    "character",
+    "unexpected",
+    "extra"
+  ],
+  "E3": [
+    "install",
+    "module",
+    "package",
+    "missing",
+    "not found"
+  ],
+  "E4": [
+    "connect",
+    "server",
+    "connection",
+    "port",
+    "running",
+    "refused"
+  ],
+  "E5": [
+    "file",
+    "exist",
+    "path",
+    "missing",
+    "find"
+  ],
+  "E6": [
+    "list",
+    "index",
+    "item",
+    "position",
+    "short",
+    "large",
+    "range"
+  ],
+  "E7": [
+    "git",
+    "repository",
+    "folder",
+    "init",
+    "directory"
+  ],
+  "E8": [
+    "push",
+    "remote",
+    "pull",
+    "branch",
+    "changes",
+    "refs"
+  ]
+}
