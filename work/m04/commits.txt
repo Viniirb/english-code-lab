@@ -1,0 +1,10 @@
+S1: feat: add login button to the home page
+S2: fix: handle empty user name to avoid crash
+S3: docs: update README with install steps
+S4: refactor: remove unused function oldHelper
+S5: refactor: rename variable x to totalPrice
+S6: test: add tests for the discount function
+S7: fix: change timeout from 5 to 10 seconds
+S8: build: upgrade axios to version 1.7
+S9: fix: correct typo in error message
+S10: perf: add cache to make search faster

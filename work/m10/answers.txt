@@ -1,0 +1,12 @@
+q1: a
+q2: b
+q3: c
+q4: a
+q5: b
+q6: a
+q7: c
+q8: a
+q9: b
+q10: a
+q11: c
+q12: b
